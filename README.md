@@ -51,7 +51,7 @@ Neither plugin needs the other. Planisphere works with any people notes you writ
 
 ## Install
 
-**With BRAT:** in BRAT's settings, choose **Add beta plugin** and enter `DavidNovo/planisphere`, then enable Planisphere.
+**With BRAT:** if you don't have BRAT yet, install and enable it from Settings, Community plugins. Then, in BRAT's settings, choose **Add beta plugin** and enter `DavidNovo/planisphere`, then enable Planisphere.
 
 **By hand:** download `main.js`, `manifest.json` and `styles.css` from the [latest release](https://github.com/DavidNovo/planisphere/releases/latest) into `<vault>/.obsidian/plugins/planisphere/`, then enable Planisphere in Settings, Community plugins.
 
