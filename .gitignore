@@ -4,7 +4,7 @@ data.json
 
 # backups from development sessions
 *.bak
-*.bak[0-9]
+*.bak[0-9]*
 
 # test harness output
 test/harness/*/out/
