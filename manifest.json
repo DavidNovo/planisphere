@@ -1,0 +1,9 @@
+{
+  "id": "planisphere",
+  "name": "Planisphere",
+  "version": "0.1.0",
+  "minAppVersion": "1.5.0",
+  "description": "Your whole vault as a star chart: named constellations, people as portraits, quiet lines that light up on hover.",
+  "author": "David Novogrodsky",
+  "isDesktopOnly": true
+}

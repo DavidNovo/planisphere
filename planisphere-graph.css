@@ -1,0 +1,73 @@
+/* Planisphere look for Obsidian's built-in graph view.
+   Install: copy to <vault>/.obsidian/snippets/planisphere-graph.css,
+   then Settings > Appearance > CSS snippets > enable.
+   Night by default; the paper palette follows Obsidian's light theme.
+   CSS can only recolor the core graph (colors, background, panel).
+   Avatars, gold rings, glow and named clusters need the Planisphere plugin. */
+
+/* ---- night (dark theme) ---- */
+.theme-dark {
+  --ns-sky-1: #141c40;
+  --ns-sky-2: #0c1330;
+  --ns-sky-3: #060918;
+  --graph-node: #aab6ff;
+  --graph-node-focused: #f3c662;
+  --graph-node-tag: #c7a8ff;
+  --graph-node-attachment: #7fd4c4;
+  --graph-node-unresolved: rgba(170, 185, 255, 0.32);
+  --graph-line: rgba(170, 185, 235, 0.14);
+  --graph-text: #e9ecf8;
+  --ns-glass: rgba(14, 19, 42, 0.68);
+  --ns-glass-line: rgba(170, 185, 255, 0.13);
+  --ns-ink: #e9ecf8;
+}
+
+/* ---- paper (light theme) ---- */
+.theme-light {
+  --ns-sky-1: #f8f3e7;
+  --ns-sky-2: #f1ead9;
+  --ns-sky-3: #e3d9c1;
+  --graph-node: #5b6cb8;
+  --graph-node-focused: #be841c;
+  --graph-node-tag: #8a5fb8;
+  --graph-node-attachment: #2f8f80;
+  --graph-node-unresolved: rgba(110, 92, 70, 0.35);
+  --graph-line: rgba(110, 92, 70, 0.22);
+  --graph-text: #2e241a;
+  --ns-glass: rgba(250, 245, 232, 0.82);
+  --ns-glass-line: rgba(110, 84, 50, 0.22);
+  --ns-ink: #2e241a;
+}
+
+/* sky background */
+.workspace-leaf-content[data-type="graph"] .view-content,
+.workspace-leaf-content[data-type="localgraph"] .view-content {
+  background: radial-gradient(ellipse at 50% 42%, var(--ns-sky-1) 0%, var(--ns-sky-2) 45%, var(--ns-sky-3) 100%);
+}
+
+/* glass control panel */
+.workspace-leaf-content[data-type="graph"] .graph-controls,
+.workspace-leaf-content[data-type="localgraph"] .graph-controls {
+  background: var(--ns-glass);
+  color: var(--ns-ink);
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px var(--ns-glass-line), 0 10px 30px -12px rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
+}
+.graph-controls .tree-item-self,
+.graph-controls .setting-item-name {
+  font-family: var(--font-interface);
+  color: var(--ns-ink);
+}
+
+/* soft glow on the nodes (works because the graph is a canvas inside the view) */
+.workspace-leaf-content[data-type="graph"] canvas,
+.workspace-leaf-content[data-type="localgraph"] canvas {
+  filter: drop-shadow(0 0 3px rgba(170, 185, 255, 0.28));
+}
+.theme-light .workspace-leaf-content[data-type="graph"] canvas,
+.theme-light .workspace-leaf-content[data-type="localgraph"] canvas {
+  filter: none;
+}

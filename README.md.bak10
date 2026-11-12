@@ -1,0 +1,72 @@
+# Planisphere
+
+Your whole Obsidian vault, drawn as a night sky.
+
+A planisphere is the paper star wheel stargazers turn in their hands to find the constellations. This one does the same for your notes.
+
+Notes are stars. Links are faint lines that light up when you hover. Notes that link to each other a lot gather into constellations, each with its own color and a soft name. Notes for people appear as round portraits, with a gold ring when other notes write about them.
+
+## What it does
+
+- **Global graph.** Every note in the vault, grouped into constellations by how the notes link.
+- **Constellations.** The side panel lists every constellation with its color and size. Click one to see only its notes; click it again, or **Show all**, to see everything.
+- **Local graph.** The current note and everything within 1, 2 or 3 links.
+- **Find and filter.** Find a note by name. Include or exclude folders and tags, hide orphans, or show only people.
+- **Side panel.** Click a note to see its folder, tags, an excerpt, what it links to and what links to it. Double-click or press Enter to open it. With nothing selected, the panel shows the constellations and your most linked notes; fold either section away by clicking its heading.
+- **Two looks.** Night sky and paper atlas.
+- **Stays current.** The graph updates as you edit, rename and delete notes.
+
+## What it does not do
+
+- It never changes your notes.
+- It makes no network requests. Everything is drawn locally from Obsidian's own link data.
+
+## How constellations are formed
+
+Only links count. Planisphere reads the links Obsidian already knows about, treats them as two-way, and finds groups of notes that link to each other more than to the rest of the vault (the Louvain method). Small groups join the constellation they link to most. Notes with no links, or that only link among a few, become **Loose notes**.
+
+Names come from the notes themselves, in this order: the folder most of the notes share, a sub-folder, a shared tag, words that appear in several titles, then the title of the best connected note. One-letter folders, like an `A` to `Z` filing scheme, are skipped in favor of something more telling.
+
+Everything is computed on your machine, inside the plugin.
+
+## People and avatars
+
+Add this to a note's frontmatter to make it a person:
+
+```yaml
+avatar: People/_avatars/jasper.bsky.social.jpg
+```
+
+A note also counts as a person if it has a `people` or `person` tag, or a `did`, `handle` or `identities` property.
+
+The avatar must be an image in your vault: a path, a `[[wikilink]]` or a Markdown image link. People without one get their initials. **People only** in Filters shows every person, including people with no links yet.
+
+## Works well with Kith
+
+Kith is a companion plugin that imports the people you follow on Bluesky as notes, one per person, with their avatar, handle, bio and the date you followed them. Mastodon follows come in from an account export.
+
+Those notes are exactly what Planisphere draws best. Every Kith person shows up as a portrait, and once you write about someone and link to their note, they get a gold ring. Turn on **People only** in Filters to see just your people.
+
+Neither plugin needs the other. Planisphere works with any people notes you write by hand, and Kith has its own people graph.
+
+## Install
+
+**With BRAT:** add this repository's URL as a beta plugin, then enable Planisphere.
+
+**By hand:** download `main.js`, `manifest.json` and `styles.css` from the latest release into `<vault>/.obsidian/plugins/planisphere/`, then enable Planisphere in Settings, Community plugins.
+
+Run **Open Planisphere** from the command palette or click the ribbon icon.
+
+## Develop
+
+```
+npm install
+npm test
+npm run build
+```
+
+`css/` holds the style sources. `npm run build` joins them into `styles.css`.
+
+## License
+
+MIT
